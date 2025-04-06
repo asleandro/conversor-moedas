@@ -7,9 +7,9 @@ services:
     depends_on:
       - db
     environment:
-      SPRING_DATASOURCE_URL: jbdc:postgresql://db:5432/conversor
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: minha_senha
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
 
   frontend:
     build: ./frontend
@@ -19,13 +19,23 @@ services:
   db:
     image: postgres:15
     ports:
-      - "5342:5432"
+      - "5432:5432"
     environment:
-      POSTGRES_DB: conversor
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: minha_senha
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    depends_on:
+      - db
 
 volumes:
   pgdata:
