@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jbdc:postgresql://db:5432/conversor
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: minha_senha
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "4200:80"
+
+  db:
+    image: postgres:15
+    ports:
+      - "5342:5432"
+    environment:
+      POSTGRES_DB: conversor
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: minha_senha
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
