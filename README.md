@@ -8,7 +8,7 @@ Currency conversor project using Java &amp; Spring Boot + Angular, consuming ext
 - *Containerization:* Docker & Docker Compose
 
 # Project Structure
-currency-converter/ ├── backend/ → Spring Boot application ├── frontend/ → Angular application ├── docker-compose.yml
+currency-converter/ ├── backend/ # Spring Boot application ├── frontend/ # Angular application └── docker-compose.yml # Docker Compose configuration
 
 # Service Addresses
 - *Frontend:* http://localhost:4200
