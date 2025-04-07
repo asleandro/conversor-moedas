@@ -1,7 +1,6 @@
 .git
 .idea
 .vscode
-target/
 node_modules/
 frontend/node_modules/
 
@@ -14,7 +13,6 @@ Thumbs.db
 
 *.bak
 *.class
-*.jar
 
 Dockerfile*
 .dockerignore

@@ -1,8 +1,8 @@
-FROM amazoncorretto:21.0.5.11.1-alpine
+FROM amazoncorretto:21-alpine
 
 WORKDIR /app
 
-COPY target/conversor-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY target/app.jar app.jar
 
 EXPOSE 8080
 
