@@ -5,10 +5,10 @@ public class CotacaoResponse {
     private Double cotacaoVenda;
     private String dataHoraCotacao;
 
-    public CotacaoResponse(
-            Double cotacaoCompra,
-            Double cotacaoVenda,
-            String dataHoraCotacao) {
+    public CotacaoResponse(Double cotacaoCompra, Double cotacaoVenda, String dataHoraCotacao) {
+        this.cotacaoCompra = cotacaoCompra;
+        this.cotacaoVenda = cotacaoVenda;
+        this. dataHoraCotacao = dataHoraCotacao;
     }
 
     public Double getCotacaoCompra() {
