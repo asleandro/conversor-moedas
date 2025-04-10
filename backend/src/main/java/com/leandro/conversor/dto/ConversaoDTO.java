@@ -10,7 +10,13 @@ public class ConversaoDTO {
     public ConversaoDTO() {
     }
 
-    public ConversaoDTO(String moeda, Double valor)
+    public ConversaoDTO(String moeda, Double valorOriginal, Double cotacao, String dataCotacao, Double valorConvertido) {
+        this.moeda = moeda;
+        this.valorOriginal = valorOriginal;
+        this.cotacao = cotacao;
+        this.dataCotacao = dataCotacao;
+        this.valorConvertido = valorConvertido;
+    }
 
     public String getMoeda() {
         return moeda;

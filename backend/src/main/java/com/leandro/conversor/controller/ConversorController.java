@@ -1,5 +1,6 @@
 package com.leandro.conversor.controller;
 
+import com.leandro.conversor.dto.ConversaoDTO;
 import com.leandro.conversor.service.ConversorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
