@@ -1,6 +1,8 @@
 package com.leandro.conversor.controller;
 
 import com.leandro.conversor.dto.ConversaoDTO;
+import com.leandro.conversor.dto.ListaDeMoedasDTO;
+import com.leandro.conversor.dto.MoedaDTO;
 import com.leandro.conversor.service.ConversorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,5 +25,11 @@ public class ConversorController {
 
         ConversaoDTO resultado = service.converterMoeda(moeda.toUpperCase(), valor);
         return ResponseEntity.ok(resultado);
+    }
+
+    @GetMapping("/moedas")
+    public ResponseEntity<ListaDeMoedasDTO> listarMoedas(){
+        ListaDeMoedasDTO lista = service.listarMoedas();
+        return ResponseEntity.ok(lista);
     }
 }

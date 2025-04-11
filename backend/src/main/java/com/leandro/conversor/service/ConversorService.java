@@ -2,7 +2,10 @@ package com.leandro.conversor.service;
 
 import com.leandro.conversor.client.BancoCentralClient;
 import com.leandro.conversor.dto.ConversaoDTO;
+import com.leandro.conversor.dto.ListaDeMoedasDTO;
+import com.leandro.conversor.dto.MoedaDTO;
 import com.leandro.conversor.model.CotacaoResponse;
+import com.leandro.conversor.model.ListaDeMoedasResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +29,13 @@ public class ConversorService {
                 cotacao.getDataHoraCotacao(),
                 valorConvertido
         );
+    }
+
+    public ListaDeMoedasDTO listarMoedas(){
+        ListaDeMoedasResponse moedas = bcClient.listarMoedas();
+
+        ListaDeMoedasDTO listaDeMoedas = new ListaDeMoedasDTO(moedas.getMoedas());
+
+        return listaDeMoedas;
     }
 }
